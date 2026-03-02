@@ -1,0 +1,34 @@
+OpenAI request failed: RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\core\error.ts:96:14)
+    at OpenAI.makeStatusError (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:488:28)
+    at OpenAI.makeRequest (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:738:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:180:28) {
+  status: 429,
+  headers: Headers {
+    date: 'Sun, 01 Mar 2026 17:17:38 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '337',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_2fdbdbdb4b2c4d47be6539718df88397',
+    'x-openai-proxy-wasm': 'v0.1',
+    server: 'cloudflare',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=ben6DB8G34KBfMciWFlXNpWrG22BpefAT.Js9e9P6w8-1772385458.3836353-1.0.1.1-5AjZ7XWJMmU0CdzJBsiY4pweSLzrzvzR1YOXKQRRVjqGFZWGdCi1Xi8T.Tnfi0J4vDGg4cPvfNt0wxAaspCIUOFcVteyIw3L1YZQsOeDnqCKVC2urlh3z04ihyo1evS1; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 17:47:38 GMT, _cfuvid=T5ooMK4UjpkAM8VYeBj9UFvcoYXQI11QaetJ1gBa2ts-1772385458.3836353-1.0.1.1-KVqKwqCQ26tz5RIrWbhD2ufYn6UcO4efnyXuUl8Ssgk; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'cf-ray': '9d59d0faef499141-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_2fdbdbdb4b2c4d47be6539718df88397',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}

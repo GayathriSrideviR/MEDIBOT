@@ -1,0 +1,225 @@
+OpenAI request failed: RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\core\error.ts:96:14)
+    at OpenAI.makeStatusError (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:488:28)
+    at OpenAI.makeRequest (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:738:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:308:30) {
+  status: 429,
+  headers: Headers {
+    date: 'Sun, 01 Mar 2026 17:43:59 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '337',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_dedee09ae85d4aa1853bbf7baa74c87c',
+    'x-openai-proxy-wasm': 'v0.1',
+    server: 'cloudflare',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=FGJtA5lMa2a4Q1vQhgKFzwE3s0UuVt6tYK1IEY2vBpo-1772387038.9986203-1.0.1.1-d192lcJu6gjEtxfRfGXwJkY891gVOqQA24YPuv.mEVnIS31TYyZd3HZxXKY90NzC4y8ZOhCmSGh_VOs9GDcSruVwr_K9gqBaBwU15.6Zo6ufzWmfmW8YC0TpScjY0WjY; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:13:59 GMT, _cfuvid=B7DCC5unEs85yBn.oSlXrrNtbEGVOEmEuWZDS9NLplM-1772387038.9986203-1.0.1.1-qjt7snRdixKx2lLkDiYyd4Rxs5TjYUD8fNykAyiDL.M; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'cf-ray': '9d59f791b951637b-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_dedee09ae85d4aa1853bbf7baa74c87c',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+Gemini request failed: Error: Gemini API error (429): {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+    at generateWithGemini (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:135:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:323:28)
+OpenAI request failed: RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\core\error.ts:96:14)
+    at OpenAI.makeStatusError (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:488:28)
+    at OpenAI.makeRequest (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:738:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:308:30) {
+  status: 429,
+  headers: Headers {
+    date: 'Sun, 01 Mar 2026 17:46:43 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '337',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_080d98ff46854103b1719c85d5a9d60d',
+    'x-openai-proxy-wasm': 'v0.1',
+    server: 'cloudflare',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=64OGJwBq.jYsYrDGXNfMz2RSSMmLHgiy86jfSmq9tLs-1772387203.3333616-1.0.1.1-JpxnK84uiWH_GbRzX7fogHLc10PAFC8nQR07JwqPvXRAlqUKn55zWEkn4_oePd5WZb6vPNPzUQ0qrjZ7jL.tm5WQxlYqKlCapIfxbLQ6kDbtVgBipAC57VrEGm9mhREW; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:16:43 GMT, _cfuvid=zxwaj6aenrw0DjJBmO.Y_1sHAEgoUnqD7lMQWcA.Z6I-1772387203.3333616-1.0.1.1-zcB9.qtbsnzaKsTY6i6VMp3fG4vV.1GquWALL4tjsLg; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'cf-ray': '9d59fb94df449bea-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_080d98ff46854103b1719c85d5a9d60d',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+Gemini request failed: Error: Gemini API error (429): {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+    at generateWithGemini (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:135:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:323:28)
+OpenAI request failed: RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\core\error.ts:96:14)
+    at OpenAI.makeStatusError (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:488:28)
+    at OpenAI.makeRequest (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:738:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:308:30) {
+  status: 429,
+  headers: Headers {
+    date: 'Sun, 01 Mar 2026 17:46:55 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '337',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_3d07e6bf43a042caa5041c9ebc782432',
+    'x-openai-proxy-wasm': 'v0.1',
+    server: 'cloudflare',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=O_AgjTEKQk_REXfMdxln46B4yhtgHnk80Rwf8p8oshA-1772387214.9850016-1.0.1.1-QPN6Pf7DPDyQJ2FSK86ws_XJOiWerOUU7LlXE_HwtpCB9.Hl41XU3PKVkjbOy6QcxDCtGsLxivSnSBisr2bfc1wGDnyEu7uJZB5C4j2zQ14dChmNMfjzWAz2U9u69eiw; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:16:55 GMT, _cfuvid=el94F7erngQH5ruSj.AXPK87Huw26Lvn.c07DkIt39A-1772387214.9850016-1.0.1.1-Rk5JR_yr11LIcTElrF6VFDusAbjsxZyPHTtG13i9R.k; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'cf-ray': '9d59fbddad0c7f09-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_3d07e6bf43a042caa5041c9ebc782432',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+Gemini request failed: Error: Gemini API error (429): {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+    at generateWithGemini (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:135:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:323:28)
+OpenAI request failed: RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\core\error.ts:96:14)
+    at OpenAI.makeStatusError (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:488:28)
+    at OpenAI.makeRequest (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:738:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:308:30) {
+  status: 429,
+  headers: Headers {
+    date: 'Sun, 01 Mar 2026 17:47:32 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '337',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_f7132f95177c46bd8c9dbef8c69b4361',
+    'x-openai-proxy-wasm': 'v0.1',
+    server: 'cloudflare',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=tlByF4BMBRK3JEGU9cgdWWFDgZ0AGgiqPcYYuLaDBjE-1772387252.2896826-1.0.1.1-S6p37amKsM39hyvgfhyWO4I5U0y5OxSzHknLx2oY1yttMHnl0dc1.j1XJcY9h4emULUHAsQNyvQSmuw6Cph1MBK58mZ8SoSMyD73ORgGqToof8ChJNa4_8s2Bl0zVOwV; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:17:32 GMT, _cfuvid=24XWVjXMxpZL6GclHib50S62LagQ5lIj8GZm4TfO6Ro-1772387252.2896826-1.0.1.1-QOBz_pqSGT3EAWNoYKbNeGFKIMacgBN6QnM2PggKPTU; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'cf-ray': '9d59fcc6cdda060c-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_f7132f95177c46bd8c9dbef8c69b4361',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+Gemini request failed: Error: Gemini API error (429): {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+    at generateWithGemini (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:135:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:323:28)
+OpenAI request failed: RateLimitError: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\core\error.ts:96:14)
+    at OpenAI.makeStatusError (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:488:28)
+    at OpenAI.makeRequest (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\node_modules\openai\src\client.ts:738:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:308:30) {
+  status: 429,
+  headers: Headers {
+    date: 'Sun, 01 Mar 2026 17:48:23 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '337',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_78ee74c55a094dad890e2edc294ad533',
+    'x-openai-proxy-wasm': 'v0.1',
+    server: 'cloudflare',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=MvkwsPIfl6dUb_dPWjcHCswCLHgfy9.fJKk57vayLFI-1772387303.1060505-1.0.1.1-UdG.BLFPJWWBHrbsa_fr35kF1P0OIv8gfMxJvUuJvwgqjeZdFH_YIvglbyjKrvoG7Ib4X14mSBo2BCNC.bF1_YuU3odyisPDmY4JEs8sFlP9.SaFNoW2KuYP8gyvGlom; HttpOnly; Secure; Path=/; Domain=api.openai.com; Expires=Sun, 01 Mar 2026 18:18:23 GMT, _cfuvid=bvjlXqOgAG6TItCU.mhUhZdOaLOKsammEELGRCtk69M-1772387303.1060505-1.0.1.1-lQ9O0eeozFv_QE73oT2c4Pl.GQlO1.5tDpMIZJ4_Oh0; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'cf-ray': '9d59fe0468468032-MAA',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_78ee74c55a094dad890e2edc294ad533',
+  error: {
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.',
+    type: 'insufficient_quota',
+    param: null,
+    code: 'insufficient_quota'
+  },
+  code: 'insufficient_quota',
+  param: null,
+  type: 'insufficient_quota'
+}
+Gemini request failed: Error: Gemini API error (429): {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+    at generateWithGemini (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:135:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Users\karth\Downloads\Medical-Chat-Assist-main\Medical-Chat-Assist-main\server\routes.ts:323:28)

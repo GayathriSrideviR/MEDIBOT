@@ -1,0 +1,7 @@
+
+> rest-express@1.0.0 dev
+> tsx server/index.ts
+
+10:46:27 PM [express] serving on port 5050
+10:47:35 PM [express] POST /api/auth/register 201 in 2280ms :: {"user":{"id":4,"name":"Env Test","email":"test711063@mail.com","passwordHash":"pass1234"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJ0ZXN0NzExMDYzQG1haWwuY29tIiwiaWF0IjoxNzcyMzg1NDU1LCJleHAiOjE3NzI5OTAyNTV9.In40kqqaOiq2RDeyI4PnFdUKmnYuou3DuQZWKb9CDZk"}
+10:47:39 PM [express] POST /api/chats 200 in 3820ms :: {"reply":"I'm having trouble reaching the AI service right now. Please try again in a moment.","followUpQuestions":[]}

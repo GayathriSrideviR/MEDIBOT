@@ -1,0 +1,222 @@
+export const conditionsData = [
+  {
+    id: "c1",
+    name: "Common Cold",
+    symptoms: ["runny nose", "sore throat", "cough", "congestion", "mild headache", "sneezing"],
+    followUpTriggers: ["Do you have a high fever above 101 F?", "How long have you had these symptoms?", "Are you experiencing chest pain?"],
+    severityLogic: { low: "mild symptoms < 3 days", medium: "symptoms 3-7 days", high: "high fever or symptoms > 7 days" },
+    specialistType: "General Physician",
+    doctor: { name: "Dr. Ramesh Kumar", specialization: "General Medicine", hospital: "Apollo Hospitals", city: "Chennai", phone: "+91-44-28293333" },
+    youtubeRemedy: "https://www.youtube.com/embed/3A1a-N2c1hQ",
+    arVideo: "/ar/common_cold.mp4"
+  },
+  {
+    id: "c2",
+    name: "Migraine",
+    symptoms: ["throbbing head pain", "nausea", "vomiting", "sensitivity to light", "sensitivity to sound"],
+    followUpTriggers: ["Is the pain on one side of your head?", "Are you experiencing any vision changes or aura?", "How long has the headache lasted?"],
+    severityLogic: { low: "mild pain, able to function", medium: "moderate pain, needing rest", high: "severe pain, unable to function" },
+    specialistType: "Neurologist",
+    doctor: { name: "Dr. Sunitha Reddy", specialization: "Neurology", hospital: "NIMS Hospital", city: "Hyderabad", phone: "+91-40-23489000" },
+    youtubeRemedy: "https://www.youtube.com/embed/8KcbP2p-6yQ",
+    arVideo: "/ar/migraine.mp4"
+  },
+  {
+    id: "c3",
+    name: "Gastroenteritis",
+    symptoms: ["diarrhea", "stomach cramps", "nausea", "vomiting", "low-grade fever"],
+    followUpTriggers: ["How many times have you vomited or had diarrhea today?", "Are you able to keep liquids down?", "Do you have severe abdominal pain?"],
+    severityLogic: { low: "mild symptoms, staying hydrated", medium: "frequent symptoms, feeling weak", high: "unable to keep liquids down, signs of dehydration" },
+    specialistType: "Gastroenterologist",
+    doctor: { name: "Dr. Vivek V", specialization: "Gastroenterology", hospital: "Manipal Hospital", city: "Bangalore", phone: "+91-80-25024444" },
+    youtubeRemedy: "https://www.youtube.com/embed/hJqA3a4lS_8",
+    arVideo: "/ar/gastroenteritis.mp4"
+  },
+  {
+    id: "c4",
+    name: "Acid Reflux (GERD)",
+    symptoms: ["heartburn", "chest pain", "regurgitation", "difficulty swallowing", "sour taste"],
+    followUpTriggers: ["Does the pain worsen when you lie down?", "Do you have trouble swallowing?", "Are you experiencing unexpected weight loss?"],
+    severityLogic: { low: "occasional heartburn", medium: "frequent heartburn affecting sleep", high: "difficulty swallowing or severe pain" },
+    specialistType: "Gastroenterologist",
+    doctor: { name: "Dr. Anjali Menon", specialization: "Gastroenterology", hospital: "Aster Medcity", city: "Kochi", phone: "+91-484-6699999" },
+    youtubeRemedy: "https://www.youtube.com/embed/2M-K8Xq6W_E",
+    arVideo: "/ar/acid_reflux.mp4"
+  },
+  {
+    id: "c5",
+    name: "Seasonal Allergies",
+    symptoms: ["sneezing", "itchy eyes", "watery eyes", "runny nose", "stuffy nose"],
+    followUpTriggers: ["Do you have a fever?", "Are you experiencing wheezing or shortness of breath?", "Is there a specific trigger you noticed?"],
+    severityLogic: { low: "mild itching and sneezing", medium: "interfering with daily activities", high: "breathing difficulties" },
+    specialistType: "Allergist",
+    doctor: { name: "Dr. Karthik Raj", specialization: "Allergy & Immunology", hospital: "KIMS Hospital", city: "Trivandrum", phone: "+91-471-2941400" },
+    youtubeRemedy: "https://www.youtube.com/embed/VbT7_Qo0cEs",
+    arVideo: "/ar/allergies.mp4"
+  },
+  {
+    id: "c6",
+    name: "Tension Headache",
+    symptoms: ["dull head pain", "pressure around forehead", "tenderness on scalp", "neck pain"],
+    followUpTriggers: ["Is the pain throbbing or pulsing?", "Does light or noise make it worse?", "Are you under significant stress recently?"],
+    severityLogic: { low: "mild pain", medium: "moderate pain, distracting", high: "severe pain not relieved by rest" },
+    specialistType: "General Physician",
+    doctor: { name: "Dr. Prakash Iyer", specialization: "Internal Medicine", hospital: "Kovai Medical Center", city: "Coimbatore", phone: "+91-422-4323800" },
+    youtubeRemedy: "https://www.youtube.com/embed/pTj-i7eUvB0",
+    arVideo: "/ar/tension_headache.mp4"
+  },
+  {
+    id: "c7",
+    name: "Allergic Rhinitis",
+    symptoms: ["sneezing", "runny nose", "nasal congestion", "itchy nose", "postnasal drip"],
+    followUpTriggers: ["Are your symptoms worse with dust, pollen, or weather changes?", "Do you also have itchy or watery eyes?", "Have symptoms lasted more than 2 weeks?"],
+    severityLogic: { low: "intermittent sneezing and runny nose", medium: "daily congestion affecting sleep", high: "persistent symptoms with breathing or sinus complications" },
+    specialistType: "Allergist / ENT Specialist",
+    doctor: { name: "Dr. Neha Sharma", specialization: "Allergy & Clinical Immunology", hospital: "Apollo Hospitals", city: "Bangalore", phone: "+91-80-26304050" },
+    youtubeRemedy: "https://www.youtube.com/embed/9m4XKi25I2M",
+    arVideo: "/ar/allergic_rhinitis.mp4"
+  },
+  {
+    id: "c8",
+    name: "Sinusitis",
+    symptoms: ["facial pain", "nasal congestion", "runny nose", "headache", "loss of smell"],
+    followUpTriggers: ["Have symptoms lasted more than 10 days?", "Do you have a high fever?", "Is there swelling around your eyes?"],
+    severityLogic: { low: "mild pressure", medium: "moderate pain, yellow/green mucus", high: "severe pain, swelling around eyes" },
+    specialistType: "ENT Specialist",
+    doctor: { name: "Dr. Sreejith V", specialization: "ENT", hospital: "Amrita Hospital", city: "Kochi", phone: "+91-484-2851234" },
+    youtubeRemedy: "https://www.youtube.com/embed/1-0lHn_JpE4",
+    arVideo: "/ar/sinusitis.mp4"
+  },
+  {
+    id: "c9",
+    name: "Burn",
+    symptoms: ["skin redness", "burning pain", "swelling", "blisters", "peeling skin"],
+    followUpTriggers: ["Is the burn area larger than your palm?", "Did the burn happen from chemicals or electricity?", "Do you have deep charred skin, severe pain, or fever?"],
+    severityLogic: { low: "small superficial redness and pain", medium: "blisters or moderate swelling", high: "large/deep burn, infection signs, or severe pain" },
+    specialistType: "Plastic Surgeon / Emergency Physician",
+    doctor: { name: "Dr. Arvind Menon", specialization: "Burns & Reconstructive Surgery", hospital: "Manipal Hospitals", city: "Bangalore", phone: "+91-80-22221111" },
+    youtubeRemedy: "https://www.youtube.com/embed/LWfG2h3f3wY",
+    arVideo: "/ar/burn.mp4"
+  },
+  {
+    id: "c10",
+    name: "Urinary Tract Infection",
+    symptoms: ["strong urge to urinate", "burning sensation when urinating", "passing frequent small amounts of urine", "cloudy urine", "pelvic pain"],
+    followUpTriggers: ["Do you have back or side pain?", "Are you experiencing fever or chills?", "Is there blood in your urine?"],
+    severityLogic: { low: "mild burning", medium: "frequent pain", high: "back pain, fever, or blood" },
+    specialistType: "Urologist",
+    doctor: { name: "Dr. Naveen Kumar", specialization: "Urology", hospital: "MIOT Hospital", city: "Chennai", phone: "+91-44-42002288" },
+    youtubeRemedy: "https://www.youtube.com/embed/2p8b1E2fA5A",
+    arVideo: "/ar/uti.mp4"
+  },
+  {
+    id: "c11",
+    name: "Muscle Strain",
+    symptoms: ["muscle pain", "swelling", "muscle spasms", "limited flexibility", "weakness"],
+    followUpTriggers: ["Did you hear a 'pop' sound when it happened?", "Can you put weight on it?", "Is there severe swelling?"],
+    severityLogic: { low: "mild pain, able to move", medium: "moderate pain, limited movement", high: "unable to move or bear weight" },
+    specialistType: "Orthopedist",
+    doctor: { name: "Dr. Rajesh Reddy", specialization: "Orthopedics", hospital: "Sunshine Hospitals", city: "Hyderabad", phone: "+91-40-44550000" },
+    youtubeRemedy: "https://www.youtube.com/embed/6_wL-9-zC1M",
+    arVideo: "/ar/muscle_strain.mp4"
+  },
+  {
+    id: "c12",
+    name: "Anemia",
+    symptoms: ["fatigue", "weakness", "pale skin", "chest pain", "cold hands and feet", "dizziness"],
+    followUpTriggers: ["Are you experiencing shortness of breath?", "Do you have an irregular heartbeat?", "Have you noticed any blood in your stool?"],
+    severityLogic: { low: "mild fatigue", medium: "frequent dizziness, pale skin", high: "chest pain, severe weakness" },
+    specialistType: "Hematologist",
+    doctor: { name: "Dr. Meena Kumari", specialization: "Hematology", hospital: "Christian Medical College", city: "Vellore", phone: "+91-416-2281000" },
+    youtubeRemedy: "https://www.youtube.com/embed/k-x-w-9Z0-E",
+    arVideo: "/ar/anemia.mp4"
+  },
+  {
+    id: "c13",
+    name: "Asthma Flare-up",
+    symptoms: ["shortness of breath", "chest tightness", "wheezing", "coughing attacks"],
+    followUpTriggers: ["Is your rescue inhaler helping?", "Are you struggling to speak in full sentences?", "Are your lips or nails turning blue?"],
+    severityLogic: { low: "mild wheezing", medium: "moderate tightness, needing inhaler", high: "severe shortness of breath, inhaler not helping" },
+    specialistType: "Pulmonologist",
+    doctor: { name: "Dr. Vinod P", specialization: "Pulmonology", hospital: "Rajagiri Hospital", city: "Kochi", phone: "+91-484-2905000" },
+    youtubeRemedy: "https://www.youtube.com/embed/v-J0O-K8X5w",
+    arVideo: "/ar/asthma.mp4"
+  },
+  {
+    id: "c14",
+    name: "Food Poisoning",
+    symptoms: ["nausea", "vomiting", "watery diarrhea", "abdominal cramps", "fever"],
+    followUpTriggers: ["How long have symptoms lasted?", "Is there blood in your vomit or stool?", "Are you showing signs of severe dehydration?"],
+    severityLogic: { low: "mild nausea/diarrhea", medium: "frequent vomiting/diarrhea", high: "high fever, bloody stool, unable to hydrate" },
+    specialistType: "General Physician",
+    doctor: { name: "Dr. Sujatha M", specialization: "Internal Medicine", hospital: "Fortis Hospital", city: "Bangalore", phone: "+91-80-66214444" },
+    youtubeRemedy: "https://www.youtube.com/embed/7X8m-X6M-9M",
+    arVideo: "/ar/food_poisoning.mp4"
+  },
+  {
+    id: "c15",
+    name: "Eczema",
+    symptoms: ["dry skin", "itching", "red patches", "small raised bumps", "cracked skin"],
+    followUpTriggers: ["Is the area infected (yellow crusts/pus)?", "Is it affecting your sleep?", "Is it spreading rapidly?"],
+    severityLogic: { low: "mild dry patches", medium: "severe itching, larger areas", high: "signs of infection or extreme discomfort" },
+    specialistType: "Dermatologist",
+    doctor: { name: "Dr. Latha Y", specialization: "Dermatology", hospital: "Care Hospitals", city: "Hyderabad", phone: "+91-40-61656565" },
+    youtubeRemedy: "https://www.youtube.com/embed/X-p7_nZzX9A",
+    arVideo: "/ar/eczema.mp4"
+  },
+  {
+    id: "c16",
+    name: "Hypothyroidism",
+    symptoms: ["fatigue", "increased sensitivity to cold", "constipation", "dry skin", "weight gain", "muscle weakness"],
+    followUpTriggers: ["Are you experiencing severe depression?", "Do you have a slow heart rate?", "Is there swelling in your neck?"],
+    severityLogic: { low: "mild fatigue", medium: "noticeable weight gain, dry skin", high: "severe lethargy, slow heart rate" },
+    specialistType: "Endocrinologist",
+    doctor: { name: "Dr. Srinivasan V", specialization: "Endocrinology", hospital: "Sri Ramachandra Medical Centre", city: "Chennai", phone: "+91-44-45928500" },
+    youtubeRemedy: "https://www.youtube.com/embed/0G6w_A0-9-E",
+    arVideo: "/ar/hypothyroidism.mp4"
+  },
+  {
+    id: "c17",
+    name: "Insomnia",
+    symptoms: ["difficulty falling asleep", "waking up during the night", "waking up too early", "not feeling well-rested", "daytime tiredness"],
+    followUpTriggers: ["How long has this been going on?", "Is it affecting your daily functioning?", "Are you experiencing severe anxiety?"],
+    severityLogic: { low: "occasional sleepless nights", medium: "frequent issues affecting daytime energy", high: "severe sleep deprivation affecting mental health" },
+    specialistType: "Psychiatrist / Sleep Specialist",
+    doctor: { name: "Dr. Anand K", specialization: "Psychiatry", hospital: "NIMHANS", city: "Bangalore", phone: "+91-80-26995000" },
+    youtubeRemedy: "https://www.youtube.com/embed/p1-1X8-X_1Q",
+    arVideo: "/ar/insomnia.mp4"
+  },
+  {
+    id: "c18",
+    name: "Chicken Pox",
+    symptoms: ["itchy rash", "fluid-filled blisters", "fever", "fatigue", "loss of appetite"],
+    followUpTriggers: ["Did the rash start on the chest/back and then spread?", "Are new blisters still appearing after 3 days?", "Do you have breathing trouble, persistent high fever, or confusion?"],
+    severityLogic: { low: "mild fever with limited rash", medium: "widespread itchy blisters with moderate fever", high: "high fever, breathing issues, dehydration, or neurological signs" },
+    specialistType: "Dermatologist / General Physician",
+    doctor: { name: "Dr. Priya Nair", specialization: "Dermatology & Infectious Skin Diseases", hospital: "Fortis Hospital", city: "Chennai", phone: "+91-44-66214444" },
+    youtubeRemedy: "https://www.youtube.com/embed/U83w-5Y4G2Q",
+    arVideo: "/ar/chicken_pox.mp4"
+  },
+  {
+    id: "c19",
+    name: "Dehydration",
+    symptoms: ["extreme thirst", "less frequent urination", "dark-colored urine", "fatigue", "dizziness", "confusion"],
+    followUpTriggers: ["Are you unable to keep fluids down?", "Are you feeling disoriented or confused?", "Is your heart beating faster than normal?"],
+    severityLogic: { low: "thirst, dark urine", medium: "dizziness, fatigue", high: "confusion, rapid heart rate, fainting" },
+    specialistType: "General Physician",
+    doctor: { name: "Dr. Biju M", specialization: "Emergency Medicine", hospital: "Medical Trust Hospital", city: "Kochi", phone: "+91-484-2358001" },
+    youtubeRemedy: "https://www.youtube.com/embed/9-F9_o-2Q8w",
+    arVideo: "/ar/dehydration.mp4"
+  },
+  {
+    id: "c20",
+    name: "Vertigo",
+    symptoms: ["feeling of spinning", "loss of balance", "dizziness", "nausea", "ringing in ears"],
+    followUpTriggers: ["Are you experiencing any hearing loss?", "Do you have a severe headache?", "Are you experiencing weakness in limbs?"],
+    severityLogic: { low: "mild dizzy spells", medium: "frequent spinning sensation, nausea", high: "severe imbalance, hearing loss, unable to walk" },
+    specialistType: "ENT Specialist / Neurologist",
+    doctor: { name: "Dr. Prasad R", specialization: "Neurology", hospital: "Yashoda Hospitals", city: "Hyderabad", phone: "+91-40-45674567" },
+    youtubeRemedy: "https://www.youtube.com/embed/1-a_E-1b-0Y",
+    arVideo: "/ar/vertigo.mp4"
+  }
+];

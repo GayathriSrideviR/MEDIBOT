@@ -1,0 +1,398 @@
+Build a full-stack AI Medical Chatbot called MEDIBOT with the following strict requirements:
+
+Chatbot must operate ONLY on 20 predefined medical conditions.
+
+It must NEVER diagnose outside those 20 datasets.
+
+It must ask follow-up questions before confirming a condition.
+
+It must NOT suggest medicines.
+
+It must recommend doctors from South India only.
+
+It must include YouTube remedy videos.
+
+It must support AR video demo (Instagram reel style modal).
+
+It must store user chat history.
+
+It must be highly responsive, animated, modern, and lovable.
+
+🏗 TECH STACK
+
+Frontend:
+
+React (Vite)
+
+Tailwind CSS
+
+Framer Motion
+
+Lucide React Icons
+
+Backend:
+
+Node.js
+
+Express
+
+SQLite or PostgreSQL
+
+OpenAI API (restricted to dataset only)
+
+Authentication:
+
+JWT login/register
+
+Chat history per registered user
+
+📊 DATASET RULE (VERY IMPORTANT)
+
+Create a static dataset file:
+
+conditions.js
+
+Only 20 predefined conditions allowed.
+
+Each condition must contain:
+
+id
+
+name
+
+symptoms
+
+follow-up question triggers
+
+severity logic
+
+specialist type
+
+real doctor (South India)
+
+exact hospital name
+
+city
+
+phone number
+
+YouTube natural remedy link
+
+AR video placeholder path (/ar/condition.mp4)
+
+AI must ONLY match user symptoms to these 20 conditions.
+
+If no match:
+Return:
+“I’m sorry, this condition is outside my supported dataset.”
+
+🧠 AI BEHAVIOR LOGIC
+
+Flow must be:
+
+User enters symptom
+→ AI asks follow-up questions
+→ User answers
+→ AI narrows condition
+→ AI confirms condition (only from dataset)
+→ Returns structured JSON:
+
+{
+  "reply": "Friendly explanation",
+  "condition": "Condition name",
+  "severity": "Low/Medium/High",
+  "specialist": "Doctor type",
+  "hospitalRecommendation": {
+    "doctorName": "",
+    "specialization": "",
+    "hospital": "",
+    "location": "",
+    "phone": ""
+  },
+  "youtubeRemedy": "",
+  "arVideo": ""
+}
+
+AI must:
+
+Be empathetic
+
+Be conversational
+
+Not robotic
+
+Not suggest medicine
+
+Not crash backend
+
+🎨 COMPLETE UI REDESIGN
+
+Make MEDIBOT:
+
+Fully responsive
+
+Modern
+
+Animated
+
+Smooth transitions
+
+Lovable medical assistant theme
+
+Clean hospital aesthetic
+
+🌈 COLOR THEME
+
+Primary: Soft Blue
+Secondary: Mint Green
+Accent: Light Purple
+Background: Soft gradient
+Severity badges:
+
+Low: Green
+
+Medium: Orange
+
+High: Red (subtle pulse)
+
+Use glassmorphism cards.
+
+✨ ANIMATIONS REQUIRED
+
+Use Framer Motion for:
+
+Chat bubble fade-in
+
+Follow-up chip slide animation
+
+Sidebar slide open/close
+
+Result card expand animation
+
+Doctor card hover elevation
+
+Video modal scale animation
+
+Smooth scrolling
+
+AI typing indicator
+
+No sudden UI jumps.
+
+🧠 FOLLOW-UP QUESTIONS FIX
+
+Follow-up questions must:
+
+Appear clearly below bot message
+
+Be animated pill-style chips
+
+Wrap properly on mobile
+
+Not overlap input box
+
+Disappear smoothly when clicked
+
+Auto-send selected response
+
+🏥 CONDITION RESULT CARD
+
+When condition confirmed:
+
+Show a premium animated card containing:
+
+Large disease icon
+
+Severity badge
+
+Friendly explanation
+
+Doctor card
+
+Hospital name
+
+Clickable phone number
+
+YouTube embed
+
+“Show First Aid Demo” button
+
+🎬 FIRST AID DEMO (INSTAGRAM REEL STYLE)
+
+When user clicks:
+
+“Show First Aid Demo”
+
+Open vertical modal:
+
+9:16 ratio
+
+Centered
+
+Dark background
+
+Close button
+
+Smooth animation
+
+Autoplay enabled
+
+Responsive
+
+Background blur
+
+Disable scroll behind modal
+
+Looks like Instagram reel.
+
+🧑‍⚕️ DOCTOR CARD DESIGN
+
+Include:
+
+Doctor avatar placeholder
+
+Name
+
+Specialization
+
+Hospital
+
+City
+
+Phone (clickable)
+
+Specialty icon (stomach, heart, throat etc)
+
+Hover animation required.
+
+📂 SIDEBAR
+
+Left side like ChatGPT:
+
+Chat history
+
+Previous searches
+
+Only for logged-in user
+
+Collapsible on mobile
+
+Smooth slide animation
+
+Highlight active chat
+
+🔐 AUTH SYSTEM
+
+Implement:
+
+Register
+
+Login
+
+JWT
+
+Protected routes
+
+Chat history per user
+
+Database tables:
+
+Users:
+
+id
+
+name
+
+email
+
+password_hash
+
+Chats:
+
+id
+
+user_id
+
+role
+
+message
+
+condition
+
+created_at
+
+📱 RESPONSIVENESS
+
+Must work on:
+
+320px mobile
+
+Tablet
+
+Desktop
+
+Large screens
+
+No horizontal scroll.
+No UI breaking.
+No invisible elements.
+
+🧹 CLEAN CODE REQUIREMENTS
+
+Modular components
+
+Reusable UI elements
+
+No duplicate code
+
+No console errors
+
+No blank screens
+
+No 404 routes
+
+No crashing backend
+
+Clean folder structure
+
+🗂 PROJECT STRUCTURE
+
+/frontend
+/components
+/pages
+/icons
+/assets/ar
+/data/conditions.js
+/services/api.js
+
+/backend
+/routes/chat.js
+/routes/auth.js
+/services/aiService.js
+/data/conditions.js
+database.js
+server.js
+
+🎯 FINAL GOAL
+
+Create a polished, startup-level medical AI assistant that:
+
+Is lovable
+
+Feels premium
+
+Is smooth and animated
+
+Has clear follow-up logic
+
+Has reel-style first aid demo
+
+Has doctor recommendations
+
+Stores user history
+
+Never crashes
+
+Only works within 20 predefined datasets
+
+Completely redesign everything if necessary.

@@ -1,0 +1,13 @@
+
+> rest-express@1.0.0 dev
+> tsx server/index.ts
+
+11:13:27 PM [express] serving on port 5000
+11:13:56 PM [express] POST /api/auth/register 201 in 2358ms :: {"user":{"id":10,"name":"Local Fallback","email":"test566929@mail.com","passwordHash":"pass1234"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoidGVzdDU2NjkyOUBtYWlsLmNvbSIsImlhdCI6MTc3MjM4NzAzNiwiZXhwIjoxNzcyOTkxODM2fQ.CMibYwJX7GxFI0AJG3gSt8YxAXjxyZ-Vm53iGN3faiE"}
+11:14:00 PM [express] POST /api/chats 200 in 3931ms :: {"reply":"Based on your symptoms, this may match Common Cold. Please consult a medical professional to confirm.","condition":"Common Cold","severity":"Low","specialist":"General Physician","hospitalRecommendation":{"doctorName":"Dr. Ramesh Kumar","specialization":"General Medicine","hospital":"Apollo Hospitals","location":"Chennai","phone":"+91-44-28293333"},"youtubeRemedy":"https://www.youtube.com/embed/3A1a-N2c1hQ","arVideo":"/ar/common_cold.mp4","followUpQuestions":[]}
+11:15:59 PM [express] POST /api/auth/register 201 in 3298ms :: {"user":{"id":11,"name":"karthi","email":"karthikeyand393@gmail.com","passwordHash":"Whatra@1"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImVtYWlsIjoia2FydGhpa2V5YW5kMzkzQGdtYWlsLmNvbSIsImlhdCI6MTc3MjM4NzE1OSwiZXhwIjoxNzcyOTkxOTU5fQ._RtHsWONIg8KwXG4FZ9aVMWzB614YTrWjiyZ35A3UqY"}
+11:16:00 PM [express] POST /api/auth/register 400 in 3010ms :: {"message":"Email already exists"}
+11:16:44 PM [express] POST /api/chats 200 in 5856ms :: {"reply":"I need a bit more detail before confirming. Based on your symptoms, Common Cold is one possibility.","followUpQuestions":["Do you have a high fever above 101°F?","How long have you had these symptoms?"]}
+11:16:55 PM [express] POST /api/chats 200 in 3353ms :: {"reply":"I need a bit more detail before confirming. Based on your symptoms, Anemia is one possibility.","followUpQuestions":["Are you experiencing shortness of breath?","Do you have an irregular heartbeat?"]}
+11:17:33 PM [express] POST /api/chats 200 in 6045ms :: {"reply":"Based on your symptoms, this may match Common Cold. Please consult a medical professional to confirm.","condition":"Common Cold","severity":"Low","specialist":"General Physician","hospitalRecommendation":{"doctorName":"Dr. Ramesh Kumar","specialization":"General Medicine","hospital":"Apollo Hospitals","location":"Chennai","phone":"+91-44-28293333"},"youtubeRemedy":"https://www.youtube.com/embed/3A1a-N2c1hQ","arVideo":"/ar/common_cold.mp4","followUpQuestions":[]}
+11:18:24 PM [express] POST /api/chats 200 in 5596ms :: {"reply":"I'm sorry, this condition is outside my supported dataset. Please consult a doctor for a proper diagnosis.","followUpQuestions":[]}

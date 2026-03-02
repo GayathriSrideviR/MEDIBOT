@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+
+    /* Soft Blue, Mint Green, Light Purple Theme */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    
+    --primary: 214 80% 60%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 152 60% 50%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 260 70% 70%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --border: 214 32% 91%;
+    --ring: 214 80% 60%;
+
+    --radius: 1rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary;
+    font-family: var(--font-sans);
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(214,80%,60%,0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(152,60%,50%,0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(260,70%,70%,0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  }
+  
+  .glass-panel {
+    @apply bg-white/90 backdrop-blur-2xl border-r border-white/50 shadow-xl shadow-black/5;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
