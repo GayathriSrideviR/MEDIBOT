@@ -92,6 +92,49 @@ class InMemoryStorage implements IStorage {
   }
 }
 
-export const storage: IStorage = process.env.DATABASE_URL
-  ? new DatabaseStorage((await import("./db")).db as DbLike)
-  : new InMemoryStorage();
+class LazyStorage implements IStorage {
+  private implPromise: Promise<IStorage> | null = null;
+
+  private getImpl(): Promise<IStorage> {
+    if (this.implPromise) {
+      return this.implPromise;
+    }
+
+    this.implPromise = (async () => {
+      if (process.env.DATABASE_URL) {
+        const dbModule = await import("./db");
+        return new DatabaseStorage(dbModule.db as DbLike);
+      }
+      return new InMemoryStorage();
+    })();
+
+    return this.implPromise;
+  }
+
+  async getUser(id: number) {
+    const impl = await this.getImpl();
+    return impl.getUser(id);
+  }
+
+  async getUserByEmail(email: string) {
+    const impl = await this.getImpl();
+    return impl.getUserByEmail(email);
+  }
+
+  async createUser(user: InsertUser) {
+    const impl = await this.getImpl();
+    return impl.createUser(user);
+  }
+
+  async getChats(userId: number) {
+    const impl = await this.getImpl();
+    return impl.getChats(userId);
+  }
+
+  async createChat(chat: InsertChat) {
+    const impl = await this.getImpl();
+    return impl.createChat(chat);
+  }
+}
+
+export const storage: IStorage = new LazyStorage();
