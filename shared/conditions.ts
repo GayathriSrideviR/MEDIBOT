@@ -2,7 +2,7 @@ export const conditionsData = [
   {
     id: "c1",
     name: "Common Cold",
-    symptoms: ["runny nose", "sore throat", "cough", "congestion", "mild headache", "sneezing"],
+    symptoms: ["sore throat", "mild cough", "nasal congestion", "sneezing", "mild body ache", "low fever"],
     followUpTriggers: ["Do you have a high fever above 101 F?", "How long have you had these symptoms?", "Are you experiencing chest pain?"],
     severityLogic: { low: "mild symptoms < 3 days", medium: "symptoms 3-7 days", high: "high fever or symptoms > 7 days" },
     specialistType: "General Physician",
@@ -24,7 +24,7 @@ export const conditionsData = [
   {
     id: "c3",
     name: "Gastroenteritis",
-    symptoms: ["diarrhea", "stomach cramps", "nausea", "vomiting", "low-grade fever"],
+    symptoms: ["loose stools", "stomach cramps", "nausea", "vomiting", "low-grade fever", "fatigue after bowel movements"],
     followUpTriggers: ["How many times have you vomited or had diarrhea today?", "Are you able to keep liquids down?", "Do you have severe abdominal pain?"],
     severityLogic: { low: "mild symptoms, staying hydrated", medium: "frequent symptoms, feeling weak", high: "unable to keep liquids down, signs of dehydration" },
     specialistType: "Gastroenterologist",
@@ -46,7 +46,7 @@ export const conditionsData = [
   {
     id: "c5",
     name: "Seasonal Allergies",
-    symptoms: ["sneezing", "itchy eyes", "watery eyes", "runny nose", "stuffy nose"],
+    symptoms: ["itchy eyes", "watery eyes", "clear runny nose", "repeated sneezing", "symptoms after pollen or dust exposure"],
     followUpTriggers: ["Do you have a fever?", "Are you experiencing wheezing or shortness of breath?", "Is there a specific trigger you noticed?"],
     severityLogic: { low: "mild itching and sneezing", medium: "interfering with daily activities", high: "breathing difficulties" },
     specialistType: "Allergist",
@@ -68,7 +68,7 @@ export const conditionsData = [
   {
     id: "c7",
     name: "Allergic Rhinitis",
-    symptoms: ["sneezing", "runny nose", "nasal congestion", "itchy nose", "postnasal drip"],
+    symptoms: ["persistent nasal congestion", "postnasal drip", "itchy nose", "morning sneezing", "throat clearing"],
     followUpTriggers: ["Are your symptoms worse with dust, pollen, or weather changes?", "Do you also have itchy or watery eyes?", "Have symptoms lasted more than 2 weeks?"],
     severityLogic: { low: "intermittent sneezing and runny nose", medium: "daily congestion affecting sleep", high: "persistent symptoms with breathing or sinus complications" },
     specialistType: "Allergist / ENT Specialist",
@@ -79,7 +79,7 @@ export const conditionsData = [
   {
     id: "c8",
     name: "Sinusitis",
-    symptoms: ["facial pain", "nasal congestion", "runny nose", "headache", "loss of smell"],
+    symptoms: ["facial pressure", "pain around cheeks or forehead", "thick yellow or green nasal mucus", "headache worse on bending", "reduced smell"],
     followUpTriggers: ["Have symptoms lasted more than 10 days?", "Do you have a high fever?", "Is there swelling around your eyes?"],
     severityLogic: { low: "mild pressure", medium: "moderate pain, yellow/green mucus", high: "severe pain, swelling around eyes" },
     specialistType: "ENT Specialist",
@@ -134,7 +134,7 @@ export const conditionsData = [
   {
     id: "c13",
     name: "Asthma Flare-up",
-    symptoms: ["shortness of breath", "chest tightness", "wheezing", "coughing attacks"],
+    symptoms: ["wheezing", "chest tightness", "shortness of breath", "night-time cough", "breathlessness on exertion"],
     followUpTriggers: ["Is your rescue inhaler helping?", "Are you struggling to speak in full sentences?", "Are your lips or nails turning blue?"],
     severityLogic: { low: "mild wheezing", medium: "moderate tightness, needing inhaler", high: "severe shortness of breath, inhaler not helping" },
     specialistType: "Pulmonologist",
@@ -145,7 +145,7 @@ export const conditionsData = [
   {
     id: "c14",
     name: "Food Poisoning",
-    symptoms: ["nausea", "vomiting", "watery diarrhea", "abdominal cramps", "fever"],
+    symptoms: ["sudden vomiting", "watery diarrhea after food intake", "abdominal cramps", "nausea", "fever or chills"],
     followUpTriggers: ["How long have symptoms lasted?", "Is there blood in your vomit or stool?", "Are you showing signs of severe dehydration?"],
     severityLogic: { low: "mild nausea/diarrhea", medium: "frequent vomiting/diarrhea", high: "high fever, bloody stool, unable to hydrate" },
     specialistType: "General Physician",

@@ -49,12 +49,14 @@ type ParsedAiResponse = {
   reply?: string;
   condition?: string | null;
   followUpQuestions?: string[];
+  followUpOptions?: string[];
 };
 
 type ConditionRecord = (typeof conditionsData)[number];
 
 type PendingAssessment = {
   conditionId: string;
+  initialMessage: string;
   answers: string[];
 };
 
@@ -221,6 +223,68 @@ function coerceJsonResponse(text: string): ParsedAiResponse {
     }
     throw new Error("AI response was not valid JSON.");
   }
+}
+
+function normalizeAnswer(answer: string): string {
+  return answer.trim().toLowerCase();
+}
+
+function isGiveDetailsSignal(answer: string): boolean {
+  const a = normalizeAnswer(answer);
+  return a === "give details" || a === "let me explain in detail";
+}
+
+function isYesNoAnswer(answer: string): boolean {
+  const a = normalizeAnswer(answer);
+  return a === "yes" || a === "no";
+}
+
+function isBinaryQuestion(question: string): boolean {
+  return /^(is|are|do|did|have|has|can|will)\b/i.test(question.trim());
+}
+
+function isDurationQuestion(question: string): boolean {
+  return /how long|how many days|lasted|since when/i.test(question);
+}
+
+function isFrequencyQuestion(question: string): boolean {
+  return /how many times|how often/i.test(question);
+}
+
+function getFollowUpOptions(question: string): string[] {
+  if (isDurationQuestion(question)) {
+    return ["1-2 days", "3-7 days", "More than 7 days", "Give details"];
+  }
+  if (isFrequencyQuestion(question)) {
+    return ["1-2 times", "3-5 times", "More than 5 times", "Give details"];
+  }
+  if (isBinaryQuestion(question)) {
+    return ["Yes", "No", "Give details"];
+  }
+  return ["Give details"];
+}
+
+function isValidAnswerForQuestion(question: string, answer: string): boolean {
+  const normalized = normalizeAnswer(answer);
+  if (isGiveDetailsSignal(normalized)) {
+    return false;
+  }
+  if (isBinaryQuestion(question)) {
+    return true;
+  }
+  if (isDurationQuestion(question) || isFrequencyQuestion(question)) {
+    if (normalized === "yes" || normalized === "no") {
+      return false;
+    }
+  }
+  return normalized.length > 0;
+}
+
+function buildDynamicAcknowledgement(answer: string): string {
+  const normalized = normalizeAnswer(answer);
+  if (normalized === "yes") return "Thanks for confirming yes.";
+  if (normalized === "no") return "Thanks for confirming no.";
+  return "Thanks for the details.";
 }
 
 function tokenize(text: string): string[] {
@@ -583,6 +647,7 @@ export async function registerRoutes(
         return res.json({
           reply: greetingReply,
           followUpQuestions: [],
+          followUpOptions: [],
         });
       }
 
@@ -598,48 +663,77 @@ export async function registerRoutes(
         if (!matchedCondition) {
           pendingAssessments.delete(userId);
         } else {
-          pending.answers.push(input.message);
-          const nextQuestionIndex = pending.answers.length;
+          const currentQuestionIndex = pending.answers.length;
+          const currentQuestion = matchedCondition.followUpTriggers[currentQuestionIndex];
+          if (!currentQuestion) {
+            pendingAssessments.delete(userId);
+          } else {
+            if (!isValidAnswerForQuestion(currentQuestion, input.message)) {
+              const needsTypedDetail = isGiveDetailsSignal(input.message);
+              const clarificationResponse = {
+                reply: needsTypedDetail
+                  ? `Please type your details for this question: ${currentQuestion}`
+                  : `Please provide a specific answer for this question: ${currentQuestion}`,
+                followUpQuestions: [currentQuestion],
+                followUpOptions: needsTypedDetail
+                  ? []
+                  : getFollowUpOptions(currentQuestion),
+              };
 
-          if (nextQuestionIndex < matchedCondition.followUpTriggers.length) {
-            const nextQuestion = matchedCondition.followUpTriggers[nextQuestionIndex];
-            const interimResponse = {
-              reply: `Thanks. ${nextQuestion}`,
-              followUpQuestions: [nextQuestion],
+              await storage.createChat({
+                userId,
+                role: "assistant",
+                message: clarificationResponse.reply,
+              });
+
+              return res.json(clarificationResponse);
+            }
+
+            pending.answers.push(input.message);
+            const nextQuestionIndex = pending.answers.length;
+
+            if (nextQuestionIndex < matchedCondition.followUpTriggers.length) {
+              const nextQuestion = matchedCondition.followUpTriggers[nextQuestionIndex];
+              const interimResponse = {
+                reply: `${buildDynamicAcknowledgement(input.message)} ${nextQuestion}`,
+                followUpQuestions: [nextQuestion],
+                followUpOptions: getFollowUpOptions(nextQuestion),
+              };
+
+              await storage.createChat({
+                userId,
+                role: "assistant",
+                message: interimResponse.reply,
+              });
+
+              return res.json(interimResponse);
+            }
+
+            pendingAssessments.delete(userId);
+            const severity = assessSeverity(pending.initialMessage, pending.answers);
+            const details = buildConditionDetails(matchedCondition);
+            const finalResponse = {
+              reply: `Based on your symptoms and follow-up answers, the most likely match in my supported dataset is ${matchedCondition.name}. Please consult a medical professional for confirmation.`,
+              condition: details.condition,
+              severity,
+              specialist: details.specialist,
+              hospitalRecommendation: details.hospitalRecommendation,
+              youtubeRemedy: details.youtubeRemedy,
+              arVideo: details.arVideo,
+              firstAidPlan: details.firstAidPlan,
+              followUpQuestions: [],
+              followUpOptions: [],
             };
 
             await storage.createChat({
               userId,
               role: "assistant",
-              message: interimResponse.reply,
+              message: finalResponse.reply,
+              condition: finalResponse.condition,
             });
 
-            return res.json(interimResponse);
+            return res.json(finalResponse);
           }
-
-          pendingAssessments.delete(userId);
-          const severity = assessSeverity(input.message, pending.answers);
-          const details = buildConditionDetails(matchedCondition);
-          const finalResponse = {
-            reply: `Based on your symptoms and follow-up answers, the most likely match in my supported dataset is ${matchedCondition.name}. Please consult a medical professional for confirmation.`,
-            condition: details.condition,
-            severity,
-            specialist: details.specialist,
-            hospitalRecommendation: details.hospitalRecommendation,
-            youtubeRemedy: details.youtubeRemedy,
-            arVideo: details.arVideo,
-            firstAidPlan: details.firstAidPlan,
-            followUpQuestions: [],
-          };
-
-          await storage.createChat({
-            userId,
-            role: "assistant",
-            message: finalResponse.reply,
-            condition: finalResponse.condition,
-          });
-
-          return res.json(finalResponse);
         }
       }
 
@@ -654,11 +748,13 @@ export async function registerRoutes(
         return res.json({
           reply: parsedResponse.reply || "I encountered an error analyzing your symptoms.",
           followUpQuestions: [],
+          followUpOptions: [],
         });
       }
 
       pendingAssessments.set(userId, {
         conditionId: bestCondition.id,
+        initialMessage: input.message,
         answers: [],
       });
 
@@ -667,6 +763,7 @@ export async function registerRoutes(
         reply:
           `I need a bit more detail before confirming. Based on your symptoms, ${bestCondition.name} is one possibility.\nPlease answer these follow-up questions one by one (yes/no/details):\n1. ${bestCondition.followUpTriggers[0]}\n2. ${bestCondition.followUpTriggers[1]}\n3. ${bestCondition.followUpTriggers[2]}`,
         followUpQuestions: [firstQuestion],
+        followUpOptions: getFollowUpOptions(firstQuestion),
       };
 
       await storage.createChat({

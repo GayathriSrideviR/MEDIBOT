@@ -66,7 +66,8 @@ export const api = {
           youtubeRemedy: z.string().optional(),
           arVideo: z.string().optional(),
           firstAidPlan: z.array(z.string()).optional(),
-          followUpQuestions: z.array(z.string()).optional()
+          followUpQuestions: z.array(z.string()).optional(),
+          followUpOptions: z.array(z.string()).optional()
         }),
         401: errorSchemas.unauthorized,
       }

@@ -276,35 +276,22 @@ export default function ChatPage() {
                             {q}
                           </motion.div>
                         ))}
-                        <div className="flex flex-wrap gap-2">
-                          <Button
-                            type="button"
-                            variant="outline"
-                            className="rounded-full"
-                            onClick={() => handleSend("Yes")}
-                            disabled={isPending}
-                          >
-                            Yes
-                          </Button>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            className="rounded-full"
-                            onClick={() => handleSend("No")}
-                            disabled={isPending}
-                          >
-                            No
-                          </Button>
-                          <Button
-                            type="button"
-                            variant="outline"
-                            className="rounded-full"
-                            onClick={() => handleSend("Let me explain in detail")}
-                            disabled={isPending}
-                          >
-                            Give details
-                          </Button>
-                        </div>
+                        {(msg.conditionData.followUpOptions?.length ?? 0) > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {msg.conditionData.followUpOptions.map((opt: string, optIndex: number) => (
+                              <Button
+                                key={`${msg.id}-opt-${optIndex}`}
+                                type="button"
+                                variant="outline"
+                                className="rounded-full"
+                                onClick={() => handleSend(opt)}
+                                disabled={isPending}
+                              >
+                                {opt}
+                              </Button>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
