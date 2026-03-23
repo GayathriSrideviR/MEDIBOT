@@ -12,6 +12,7 @@ type RegisterInput = z.infer<typeof api.auth.register.input>;
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
+  isSubmitting: boolean;
   login: (data: LoginInput) => Promise<void>;
   register: (data: RegisterInput) => Promise<void>;
   logout: () => void;
@@ -90,6 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     <AuthContext.Provider value={{
       user: user || null,
       isLoading,
+      isSubmitting: loginMutation.isPending || registerMutation.isPending,
       login: async (data) => { await loginMutation.mutateAsync(data); },
       register: async (data) => { await registerMutation.mutateAsync(data); },
       logout

@@ -8,6 +8,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -22,7 +23,8 @@ const registerSchema = z.object({
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const { login, register, isLoading } = useAuth();
+  const { login, register, isLoading, isSubmitting } = useAuth();
+  const { toast } = useToast();
 
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -38,6 +40,22 @@ export default function AuthPage() {
 
   const onSubmitRegister = async (data: z.infer<typeof registerSchema>) => {
     await register(data);
+  };
+
+  const onLoginInvalid = () => {
+    toast({
+      title: "Invalid form",
+      description: "Enter a valid email and password to continue.",
+      variant: "destructive",
+    });
+  };
+
+  const onRegisterInvalid = () => {
+    toast({
+      title: "Invalid form",
+      description: "Fill all required fields before creating an account.",
+      variant: "destructive",
+    });
   };
 
   return (
@@ -89,7 +107,7 @@ export default function AuthPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
               transition={{ duration: 0.3 }}
-              onSubmit={loginForm.handleSubmit(onSubmitLogin)}
+              onSubmit={loginForm.handleSubmit(onSubmitLogin, onLoginInvalid)}
               className="space-y-4"
             >
               <div className="space-y-1.5">
@@ -103,7 +121,9 @@ export default function AuthPage() {
                 <Label htmlFor="login-password">Password</Label>
                 <Input id="login-password" type="password" placeholder="••••••••" {...loginForm.register("password")} />
               </div>
-              <Button type="submit" className="w-full mt-6" isLoading={isLoading}>Sign In</Button>
+              <Button type="submit" className="w-full mt-6" isLoading={isSubmitting || isLoading}>
+                Sign In
+              </Button>
             </motion.form>
           ) : (
             <motion.form
@@ -112,7 +132,7 @@ export default function AuthPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              onSubmit={registerForm.handleSubmit(onSubmitRegister)}
+              onSubmit={registerForm.handleSubmit(onSubmitRegister, onRegisterInvalid)}
               className="space-y-4"
             >
               <div className="space-y-1.5">
@@ -136,7 +156,9 @@ export default function AuthPage() {
                   <p className="text-xs text-destructive">{registerForm.formState.errors.password.message}</p>
                 )}
               </div>
-              <Button type="submit" className="w-full mt-6" isLoading={isLoading}>Create Account</Button>
+              <Button type="submit" className="w-full mt-6" isLoading={isSubmitting || isLoading}>
+                Create Account
+              </Button>
             </motion.form>
           )}
         </AnimatePresence>
